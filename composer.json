@@ -1,0 +1,17 @@
+{
+    "name": "fd6130/exabytes-sms-bundle",
+    "description": "This bundle provide sms service using exabytes api.",
+    "keywords": ["Symfony", "symfony", "bundle", "sms", "exabytes"],
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Fd\\Exabytes\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=7.2.5",
+        "symfony/http-client": "^4.4|^5.0",
+        "symfony/yaml": "^4.4|^5.0"
+    }
+}
