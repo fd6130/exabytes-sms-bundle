@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Fd\Exabytes;
+namespace Fd\ExabytesBundle\Service;
 
 use Fd\Exabytes\Exception\ExabytesException;
 use Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface;

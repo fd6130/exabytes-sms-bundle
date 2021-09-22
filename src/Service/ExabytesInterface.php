@@ -1,6 +1,6 @@
 <?php
 
-namespace Fd\Exabytes;
+namespace Fd\ExabytesBundle\Service;
 
 interface ExabytesInterface
 {
