@@ -17,7 +17,7 @@ class FdExabytesExtension extends Extension
         $configuration = $this->getConfiguration($configs, $container);
         $config = $this->processConfiguration($configuration, $configs);
         
-        $paginatorDefinition = $container->getDefinition('fd.exabytes.exabytes');
-        $paginatorDefinition->setArgument(0, $config);
+        $definition = $container->getDefinition('fd.exabytes.exabytes');
+        $definition->setArgument(0, $config);
     }
 }
