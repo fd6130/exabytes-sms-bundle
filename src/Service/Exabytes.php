@@ -3,35 +3,28 @@ declare(strict_types=1);
 
 namespace Fd\ExabytesBundle\Service;
 
-use Fd\Exabytes\Exception\ExabytesException;
+use Fd\ExabytesBundle\Exception\ExabytesException;
 use Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface;
 use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
-/**
- * @author fd6130
- */
 class Exabytes implements ExabytesInterface
 {
     private $client;
-    private $params;
-    private $messageType = 1;
+    private $config;
 
-    public function __construct(string $username, string $password, int $messageType, HttpClientInterface $client)
+    public function __construct(array $config, HttpClientInterface $client)
     {
-        $this->messageType = $messageType;
+        $this->config = $config;
         $this->client = $client;
     }
 
     public function send(string $mobile, string $message, int $messageType)
     {
-        $username = $this->params->get('exabytes.username');
-        $password = $this->params->get('exabytes.password');
-
         $endpoint = sprintf(
             'https://smsportal.exabytes.my/isms_send.php?un=%s&pwd=%s&dstno=%s&msg=%s&type=%s&agreedterm=YES',
-            urlencode($username),
-            urlencode($password),
+            urlencode($this->config['username']),
+            urlencode($this->config['password']),
             urlencode($mobile), 
             urlencode($message), 
             $messageType

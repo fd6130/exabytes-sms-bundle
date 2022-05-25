@@ -1,0 +1,9 @@
+services:
+    fd.exabytes.exabytes:
+        class: Fd\ExabytesBundle\Service\Exabytes
+        arguments:
+            $client: "@http_client"
+    Fd\ExabytesBundle\Service\Exabytes:
+        arguments:
+            $client: "@http_client"
+    Fd\ExabytesBundle\Service\ExabytesInterface: "@fd.exabytes.exabytes"
